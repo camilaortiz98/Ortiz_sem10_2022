@@ -9,9 +9,9 @@ import retrofit2.http.POST;
 
 public interface servicio {
 
-    @GET("N00029592")
-    Call<List<pokemon>> LISTACall();
+    @GET("crearLibro")
+    Call<List<libro>> LISTACall();
 
-    @POST("N00029592/crear")
-    Call<Void> crear(@Body pokemon pokemon);
+    @POST("crearLibro")
+    Call<Void> crear(@Body libro libro);
 }

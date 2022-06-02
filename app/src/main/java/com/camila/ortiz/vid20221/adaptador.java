@@ -18,11 +18,11 @@ import java.util.List;
 
 public class adaptador extends RecyclerView.Adapter<adaptador.pokemonHolder> {
 
-    List<pokemon> pokemons;
+    List<libro> libros;
     Context context;
 
-    public adaptador(List<pokemon> pokemons, Context context) {
-        this.pokemons = pokemons;
+    public adaptador(List<libro> libros, Context context) {
+        this.libros = libros;
         this.context = context;
     }
 
@@ -38,18 +38,18 @@ public class adaptador extends RecyclerView.Adapter<adaptador.pokemonHolder> {
     @Override
     public void onBindViewHolder(@NonNull pokemonHolder holder, int position) {
 
-        pokemon pokemon = pokemons.get(position);
+        libro libro = libros.get(position);
 
-        holder.nombre.setText(pokemon.getNombre());
-        holder.tipo.setText(pokemon.getTipo());
+        holder.nombre.setText(libro.getTitulo());
 
-        Picasso.get()
-                .load(pokemon.getUrl_imagen())
+
+       Picasso.get()
+                .load("https://sm.ign.com/ign_es/tv/j/juego-de-t/juego-de-tronos_d4p4.png")
                 .into(holder.imagen);
 
-        holder.button.setOnClickListener(v -> {
+        holder.imagen.setOnClickListener(v -> {
             Intent intent = new Intent(context, detalleActivity.class);
-            intent.putExtra("pokemon", pokemon);
+            intent.putExtra("libro", libro);
             context.startActivity(intent);
         });
 
@@ -58,20 +58,17 @@ public class adaptador extends RecyclerView.Adapter<adaptador.pokemonHolder> {
 
     @Override
     public int getItemCount() {
-        return pokemons.size();
+        return libros.size();
     }
 
-    class pokemonHolder extends RecyclerView.ViewHolder {
+    static class pokemonHolder extends RecyclerView.ViewHolder {
 
         TextView nombre, tipo;
-        Button button;
         ImageView imagen;
 
         public pokemonHolder(@NonNull View itemView) {
             super(itemView);
             nombre = itemView.findViewById(R.id.nombre);
-            tipo = itemView.findViewById(R.id.tipo);
-            button = itemView.findViewById(R.id.detalle);
             imagen = itemView.findViewById(R.id.imagen);
         }
     }

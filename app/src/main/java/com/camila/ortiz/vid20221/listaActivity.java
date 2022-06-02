@@ -30,27 +30,27 @@ public class listaActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
 
-                .baseUrl("https://628f68e4dc478523653ffd8a.mockapi.io/api/pokemon")
+                .baseUrl("https://6298b2a7f2decf5bb7496687.mockapi.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
         servicio service = retrofit.create(servicio.class);
 
-        Call<List<pokemon>> listaCall = service.LISTACall();
+        Call<List<libro>> listaCall = service.LISTACall();
 
-        listaCall.enqueue(new Callback<List<pokemon>>() {
+        listaCall.enqueue(new Callback<List<libro>>() {
             @Override
-            public void onResponse(Call<List<pokemon>> call, Response<List<pokemon>> response) {
+            public void onResponse(Call<List<libro>> call, Response<List<libro>> response) {
 
                 Log.e("info ", String.valueOf(response.code()));
-                List<pokemon> pokemonList = response.body();
+                List<libro> pokemonList = response.body();
                 adaptador adapterList = new adaptador(pokemonList, listaActivity.this);
                 recyclerView.setAdapter(adapterList);
 
             }
 
             @Override
-            public void onFailure(Call<List<pokemon>> call, Throwable t) {
+            public void onFailure(Call<List<libro>> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
             }
         });

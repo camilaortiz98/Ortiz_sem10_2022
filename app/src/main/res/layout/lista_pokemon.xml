@@ -9,26 +9,16 @@
         android:id="@+id/imagen"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:src="@drawable/ic_baseline_add_a_photo_24"
         android:layout_gravity="center"
         android:layout_margin="10dp" />
 
     <TextView
         android:id="@+id/nombre"
+        android:textSize="19dp"
+        android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
-
-    <TextView
-        android:id="@+id/tipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
-
-    <Button
-        android:id="@+id/detalle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Ver detalle" />
 
 </LinearLayout>
